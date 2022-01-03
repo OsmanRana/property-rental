@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Container } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 
 const Home = () => {
     const floorRentals = [
@@ -7,54 +7,51 @@ const Home = () => {
             id: 1,
             floor: "1st",
             desc: "Rental Spaces",
-            img: ""
+            img: "https://images.pexels.com/photos/3773584/pexels-photo-3773584.png?auto=compress&cs=tinysrgb&dpr=1&w=500"
         },
         {
             id: 2,
             floor: "2st",
             desc: "Rental Spaces",
-            img: ""
+            img: "https://images.pexels.com/photos/280232/pexels-photo-280232.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
         },
         {
             id: 3,
             floor: "3st",
             desc: "Rental Spaces",
-            img: ""
+            img: "https://images.pexels.com/photos/2082090/pexels-photo-2082090.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
         },
     ]
     return (
         <div className='container'>
-            <h1>This is home</h1>
             <img src="./property.jpg" alt="property" className="w-100" />
-            <Container className='d-flex'>
+            <Container className="row row-cols-1 row-cols-sm-2 row-cols-md-4 my-5">
+                
                 {
                     floorRentals.map((floor) => {
                         return <div key={floor.id}>
-                            <Card>
-                                <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card className="border-0 rounded-3 shadow">
+                                <Card.Img variant="top" src={floor.img} />
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>{floor.floor} Floor</Card.Title>
                                     <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
+                                        {floor.desc}
                                     </Card.Text>
-                                    <Button variant="primary">Go somewhere</Button>
+                                    <Button variant="primary">Details</Button>
                                 </Card.Body>
                             </Card>
                         </div>
                     })
                 }
-                <Card>
-                                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card className="border-0 rounded-3 shadow">
+                                
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>General Information</Card.Title>
                                     <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Go somewhere</Button>
                                 </Card.Body>
                             </Card>
+                
             </Container>
         </div>
     );
